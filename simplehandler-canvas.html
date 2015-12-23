@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Mr. Motemori</title>
+</head>
+<body>
+  <canvas id="canvas" width="300" height="300" style="box-shadow: 0 0 10px #ccc;"></canvas>
+
+  <script type="text/javascript">
+    var canvas = document.getElementById('canvas'),
+      ctx = canvas.getContext('2d'),
+      rectBg = 'orange';
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = rectBg;
+      ctx.fillRect(100, 100, 100, 100);
+    }
+
+    canvas.addEventListener('click', function(event) {
+      var clickX = event.clientX - canvas.getBoundingClientRect().left,
+        clickY = event.clientY - canvas.getBoundingClientRect().top;
+
+      if (clickX > 100 && clickX < 200 &&
+        clickY > 100 && clickY < 200) {
+        rectBg = ((rectBg == 'orange') ? 'black' : 'orange');
+        draw();
+      }
+    }, false);
+
+    draw();
+  </script>
+</body>
+</html>

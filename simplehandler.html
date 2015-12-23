@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Mr. Motemori</title>
+</head>
+<body>
+  <svg width="300" height="300" version="1.1" style="box-shadow: 0 0 10px #ccc;">
+    <rect id="rect" x="100" y="100" width="100" height="100" stroke="none" fill="orange" style="cursor: pointer;"/>
+  </svg>
+
+  <script type="text/javascript">
+    document.getElementById('rect').addEventListener('click', function(event) {
+      var target = event.target;
+      switch(target.getAttribute('fill')) {
+        case 'orange':
+          target.setAttribute('fill', 'black');
+          break;
+        case 'black':
+          target.setAttribute('fill', 'orange');
+      }
+    }, false);
+  </script>
+</body>
+</html>
